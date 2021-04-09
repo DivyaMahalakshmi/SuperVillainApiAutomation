@@ -7,7 +7,7 @@ import io.restassured.specification.RequestSpecification;
 import model.User;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import utils.TestUtils;
 
 import static io.restassured.RestAssured.given;
@@ -92,7 +92,7 @@ public class SuperVillainApiTest {
                 statusCode(201);
 
         user.put("score",100);
-        JsonPath response  = given().
+        given().
                 when().
                 header("Content-Type","application/json").
                 body(user.toJSONString()).
